@@ -2,9 +2,9 @@ name: Neurcode Gatekeeper
 
 on:
   pull_request:
-    types: [opened, synchronize, reopened]
   push:
-    branches: [main, master]
+    branches: [main]
+  workflow_dispatch: 
 
 permissions:
   contents: read
@@ -24,5 +24,4 @@ jobs:
         uses: sujit-jaunjal/neurcode-actions/packages/action@main
         with:
           api_key: ${{ secrets.NEURCODE_API_KEY }}
-          # Optional: Fail the build if violations are found (Default: true)
           fail_on_violation: true
